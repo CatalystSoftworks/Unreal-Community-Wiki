@@ -1,0 +1,456 @@
+.markdown {
+    font-weight: 400;
+    
+    &,
+    .version,
+    .blockquote,
+    .hint {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    address,
+    blockquote,
+    dl,
+    figure,
+    form,
+    pre,
+    table {
+        font: inherit;
+        line-height: 1.5;
+    }
+
+    h1 {
+        font-weight: bold;
+        line-height: 1.125;
+        font-size: 2em;
+    }
+
+    h2 {
+        font-weight: bold;
+        line-height: 1.25;
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-weight: bold;
+        line-height: 1.35;
+        font-size: 1.25em
+    }
+
+    h4 {
+        font-weight: bold;
+        line-height: 1.5;
+        font-size: 1.125em;
+    }
+
+    h5 {
+        font-weight: bold;
+        line-height: 1.5;
+        font-size: 1em;
+    }
+
+    h6 {
+        font-weight: bold;
+        line-height: 1.5;
+        font-size: 0.75em;
+        text-transform: uppercase;
+    }
+
+    p,
+    ul,
+    ol {
+        line-height: 1.5;
+    }
+
+    ul {
+        list-style: circle inside;
+    }
+
+    ol {
+        list-style: decimal inside;
+    }
+
+    ol,
+    ul,
+    dl {
+        padding-right: 0;
+        padding-left: 1em;
+        -webkit-padding-start: 1em;
+        padding-inline-start: 1em;
+        -webkit-padding-end: 0;
+        padding-inline-end: 0;
+    }
+
+    li {
+        margin-bottom: 1em;
+    }
+
+    blockquote,
+    q {
+        quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: "";
+        content: none;
+    }
+
+    blockquote {
+        display: block;
+        margin: var(--typography-spacing-vertical) 0;
+        padding: 1em;
+        border-right: none;
+        border-left: 0.25em solid var(--blockquote-border-color);
+        -webkit-border-start: 0.25em solid var(--blockquote-border-color);
+        border-inline-start: 0.25em solid var(--blockquote-border-color);
+        -webkit-border-end: none;
+        border-inline-end: none;
+    }
+
+    blockquote footer {
+        margin-top: calc(var(--typography-spacing-vertical) * 0.5);
+        color: var(--blockquote-footer-color);
+    }
+
+    mark {
+        padding: 0.125em 0.25em;
+        background-color: var(--mark-bg);
+        color: var(--mark-color);
+        vertical-align: baseline;
+    }
+
+    abbr[title] {
+        border-bottom: 1px dotted;
+        text-decoration: none;
+        cursor: help;
+    }
+
+    ins {
+        color: var(--ins-color);
+        text-decoration: none;
+    }
+
+    del {
+        color: var(--del-color);
+    }
+
+    s,
+    del {
+        text-decoration: line-through;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+
+    i,
+    em,
+    dfn {
+        font-style: italic;
+    }
+
+    small {
+        font-size: var(--size-sm);
+    }
+
+    sub,
+    sup {
+        font-size: var(--size-xs);
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+
+    sup {
+        top: -0.5em;
+    }
+
+    sub {
+        bottom: -0.25em;
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: var(--font-code);
+        font-size: var(--size-sm);
+        white-space: pre-wrap;
+    }
+
+    kbd {
+        font-weight: bolder;
+    }
+
+    code {
+        white-space: nowrap;
+    }
+
+    pre {
+        border-radius: var(--radius);
+        background: var(--pre-bg);
+        color: var(--pre-text);
+        overflow: auto;
+        --webkit-overflow-scrolling: touch;
+        padding: 2em;
+
+        --scrollbar-background: var(--pre-scrollbar-background);
+        --scrollbar-foreground: var(--pre-scrollbar-foreground);
+    }
+
+    pre code {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        white-space: pre;
+        font-size: 1em;
+    }
+
+    hr {
+        display: block;
+        margin: 2em auto;
+        height: 1px;
+        width: 100%;
+        border: 0;
+        background: var(--border);
+    }
+
+    // h1,
+    // h2,
+    // h3,
+    // h4,
+    // h5,
+    // h6 {
+    //     font-family: var(--font-alt);
+    // }
+
+    h1 {
+        font-size: 2em;
+        margin: 0.5em 0;
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 2em;
+    }
+
+    ol {
+        list-style: decimal;
+        padding-left: 2em;
+    }
+
+    .codeMarker {
+        background: #ffff99;
+        color: #222;
+        position: absolute;
+        z-index: 20;
+    }
+
+    .hint {
+        padding: 1em;
+        border-radius: var(--radius);
+        background: var(--hint-bg);
+        border: solid 2px var(--hint-color);
+
+        &:before {
+            display: block;
+            padding: 0.5em 1em;
+            width: fit-content;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.75em;
+            letter-spacing: 1px;
+            border-radius: var(--radius);
+            color: var(--hint-on-color);
+            background: var(--hint-color);
+            content: var(--hint-label);
+        }
+
+        ::selection,
+        ::-moz-selection,
+        ::-webkit-selection {
+            background: var(--hint-color);
+            color: var(--hint-on-color);
+        }
+
+        &.is-tip {
+            --hint-color: var(--primary);
+            --hint-on-color: var(--on-primary);
+            --hint-bg: var(--primary-bg);
+            --hint-label: "Tip";
+        }
+
+        &.is-note {
+            --hint-color: var(--primary);
+            --hint-on-color: var(--on-primary);
+            --hint-bg: var(--primary-bg);
+            --hint-label: "Note";
+        }
+
+        &.is-todo {
+            --hint-color: var(--secondary);
+            --hint-on-color: var(--on-secondary);
+            --hint-bg: var(--secondary-bg);
+            --hint-label: "Todo";
+        }
+
+        &.is-warning {
+            --hint-color: var(--warning);
+            --hint-on-color: var(--on-warning);
+            --hint-bg: var(--warning-bg);
+            --hint-label: "Warning";
+        }
+
+        &.is-success {
+            --hint-color: var(--success);
+            --hint-on-color: var(--on-success);
+            --hint-bg: var(--success-bg);
+            --hint-label: "Success";
+        }
+
+        &.is-danger {
+            --hint-color: var(--error);
+            --hint-on-color: var(--on-error);
+            --hint-bg: var(--error-bg);
+            --hint-label: "Danger";
+        }
+    }
+
+    .blueprint {
+        width: 100%;
+        height: 50vh;
+
+        &.is-invalid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.05);
+            height: 10vh;
+
+            &:before {
+                content: "Invalid Blueprint ID";
+                opacity: 0.5;
+            }
+        }
+    }
+
+    .video {
+        position: relative;
+        width: 100%;
+
+        &:before {
+            display: block;
+            content: "";
+            padding-bottom: 56.25%;
+        }
+
+        >img,
+        >video,
+        >iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    // ul.contains-task-list {
+    //     list-style: none;
+    //     padding-left: 0;
+    // }
+
+    li.task-list-item {
+        position: relative;
+        list-style: none;
+        padding-left: 0.5em;
+
+        &>input[type="checkbox"] {
+            position: absolute;
+            top: 0.25em;
+            left: -1.5em;
+            margin: 0;
+            display: inline-block;
+            border: solid 2px var(--border);
+            border-radius: var(--radius);
+            width: 1em;
+            height: 1em;
+        }
+
+        &>input[type="checkbox"]:checked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        &>input[type="checkbox"]:checked:after {
+            content: "✓";
+            display: block;
+            font-size: 1em;
+            color: var(--on-primary);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    table {
+        background: var(--fg);
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-radius: var(--radius);
+    }
+
+    table tr {
+        border-bottom: solid 1px var(--bg);
+    }
+
+    table th {
+        font-weight: bold;
+        font-size: 0.875em;
+    }
+
+    table th,
+    table td {
+        padding: 0.5em 1em;
+        text-align: left;
+    }
+
+    // table tr:nth-child(even) {
+    //     background: var(--highlight);
+    // }
+
+}
+
+.preview {
+    .version {
+        padding: 1em;
+        border-radius: var(--radius);
+        border: dashed 2px var(--warning);
+
+        &:before {
+            content: attr(rules);
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.75em;
+            letter-spacing: 1px;
+            color: var(--warning);
+        }
+    }
+}

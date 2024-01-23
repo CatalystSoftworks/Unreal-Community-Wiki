@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="%wiki_locale%" data-theme="%wiki_theme%">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Unreal Engine Community Wiki</title>
+    <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <meta name="description" content="" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="./global.css">
+    <style>
+        #error {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: var(--font-alt);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="error">
+        <h1>%sveltekit.error.status%</h1>
+        <p class="muted">%sveltekit.error.message%</p>
+    </main>
+</body>
+
+</html>
