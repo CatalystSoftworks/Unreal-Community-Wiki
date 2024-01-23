@@ -18,9 +18,21 @@
 
     /** Icon to use for the nav item. */
     export let icon: null | typeof SvelteComponent<{}> = null;
+
+    /** Should we open the link in a new window? */
+    export let newWindow = false;
 </script>
 
-<a {href} class="row-left" class:with-icon={icon} class:active {title} on:click>
+<a
+    {href}
+    class="row-left"
+    class:with-icon={icon}
+    class:active
+    {title}
+    on:click
+    target={newWindow ? "_blank" : undefined}
+    rel={newWindow ? "noopener" : undefined}
+>
     {#if icon !== null}
         <svelte:component this={icon} />
     {/if}

@@ -17,16 +17,19 @@
         label="Unreal Docs"
         href="https://docs.unrealengine.com"
         icon={IconUnreal}
+        newWindow
     />
     <NavLink
         label="Unreal Answers"
         href="https://answers.unrealengine.com"
         icon={IconUnrealAnswers}
+        newWindow
     />
     <NavLink
         label="Unreal Source"
         href="https://unrealsource.com/"
         icon={IconUnrealSource}
+        newWindow
     />
 </NavGroup>
 
@@ -35,6 +38,7 @@
         label="Source Code"
         href="https://github.com/catalystsoftworks/unreal-community-wiki"
         icon={IconBrandGithub}
+        newWindow
     />
     <NavLink
         label="Privacy Policy"
