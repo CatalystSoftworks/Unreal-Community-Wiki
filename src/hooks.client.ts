@@ -15,7 +15,10 @@ Sentry.init({
   replaysOnErrorSampleRate: parseFloat(PUBLIC_SENTRY_ERROR_SAMPLE_RATE || "1"),
 
   // If you don't want to use Session Replay, just remove the line below:
-  integrations: [new Replay()],
+  integrations: [new Replay({
+    maskAllText: false,
+    blockAllMedia: false,
+  })],
 });
 
 // If you have a custom error handler, pass it to `handleErrorWithSentry`
