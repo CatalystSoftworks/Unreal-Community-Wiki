@@ -9,7 +9,7 @@ const auth = env.SMTP_USER && env.SMTP_PASS
 const mailer = nodemailer.createTransport({
     host: env.SMTP_HOST || "localhost",
     port: Number(env.SMTP_PORT || "587"),
-    secure: env.SMTP_SECURE || false,
+    secure: env.SMTP_SECURE === "true" || false,
     auth,
 });
 
