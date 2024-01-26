@@ -62,7 +62,7 @@
                             <IconMail />
                         </a>
                     {/if}
-                    {#if user.socials.website}
+                    {#if user.socials?.website}
                         <a
                             href={user.socials.website}
                             target="_blank"
@@ -74,7 +74,7 @@
                             <IconWorldWww />
                         </a>
                     {/if}
-                    {#if user.socials.twitter}
+                    {#if user.socials?.twitter}
                         <a
                             href="https://twitter.com/{user.socials.twitter}"
                             target="_blank"
@@ -86,7 +86,7 @@
                             <IconTwitter />
                         </a>
                     {/if}
-                    {#if user.socials.github}
+                    {#if user.socials?.github}
                         <a
                             href="http://github.com/{user.socials.github}"
                             target="_blank"
