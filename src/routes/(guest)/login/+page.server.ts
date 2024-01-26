@@ -9,6 +9,7 @@ import { ObjectId } from "mongodb";
 import { sendEmail } from "$lib/server/mailer";
 import { ORIGIN } from "$env/static/private";
 import { redirect, type Cookies } from "@sveltejs/kit";
+import { dev } from "$app/environment";
 
 export const load: PageServerLoad = async ({ request, url, cookies }) => {
     const email = url.searchParams.get("email");
@@ -75,6 +76,11 @@ export async function _requestCode(email: string, request: Request) {
     };
 
     await userSessionsDb.insertOne(sess);
+
+    // if we're in development mode, then log the pin code to the console
+    if (dev) {
+        console.log(`Pin code for ${user.email}: ${token}`);
+    }
 
     // send the email message to the user
     await sendEmail({
