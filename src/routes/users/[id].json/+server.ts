@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { usersDb } from "$lib/server/dbo";
+import { revisionsDb, usersDb } from "$lib/server/dbo";
 import type { RequestHandler } from "./$types";
 import { json } from "@sveltejs/kit";
 
@@ -22,46 +22,22 @@ export type UserJsonResponse = UserInfoSubset | { error: string };
 export const GET: RequestHandler = async ({ params }) => {
     const id = new ObjectId(params.id);
 
-    const userCursor = usersDb.aggregate([
-        { $match: { _id: id } },
-        {
-            $lookup: {
-                from: "page_revisions",
-                localField: "_id",
-                foreignField: "_authorId",
-                as: "revisions",
-            },
-        },
-        {
-            $addFields: {
-                "revisionCount": { $size: "$revisions" },
-            },
-        },
-        {
-            $project: {
-                _id: 1,
-                displayName: 1,
-                email: 1,
-                emailPublic: 1,
-                bio: 1,
-                avatarUrl: 1,
-                revisionCount: 1,
-                socials: 1,
-            },
-        },
-    ]);
-
-    const user = await userCursor.next();
+    const user = await usersDb.findOne({ _id: id });
     if (!user) {
-        return json({ error: "User not found" }, { status: 404 });
+        return json({ error: "User not found" });
     }
+
+    const revisionCount = await revisionsDb.countDocuments({
+        _authorId: id,
+        deletedAt: null,
+    });
 
     const info: UserInfoSubset = {
         id: user._id.toHexString(),
         displayName: user.displayName,
         email: user.emailPublic ? user.email : null,
         avatarUrl: user.avatarUrl,
-        revisionCount: user.revisionCount,
+        revisionCount: revisionCount,
         bio: user.bio,
         socials: {
             github: user.socials.github,
