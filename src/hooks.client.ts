@@ -8,7 +8,7 @@ Sentry.init({
 
   // This sets the sample rate to be 10%. You may want this to be 100% while
   // in development and sample at a lower rate in production
-  replaysSessionSampleRate: parseFloat(PUBLIC_SENTRY_TRACE_SAMPLE_RATE || "0.1"),
+  replaysSessionSampleRate: parseFloat(PUBLIC_SENTRY_REPLAYS_SAMPLE_RATE || "0.1"),
 
   // If the entire session is not sampled, use the below sample rate to sample
   // sessions when an error occurs.
