@@ -1,4 +1,9 @@
-import { PUBLIC_SENTRY_DSN, PUBLIC_SENTRY_ERROR_SAMPLE_RATE, PUBLIC_SENTRY_TRACE_SAMPLE_RATE } from "$env/static/public";
+import { 
+  PUBLIC_SENTRY_DSN, 
+  PUBLIC_SENTRY_ERROR_SAMPLE_RATE, 
+  PUBLIC_SENTRY_TRACE_SAMPLE_RATE,
+  PUBLIC_SENTRY_REPLAYS_SAMPLE_RATE,
+} from "$env/static/public";
 import { handleErrorWithSentry, Replay } from "@sentry/sveltekit";
 import * as Sentry from "@sentry/sveltekit";
 
