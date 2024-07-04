@@ -9,20 +9,21 @@ import rehypeStringify from "rehype-stringify";
 import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
+import purify from "isomorphic-dompurify";
 
 export function createProcessor() {
-    return unified()
-        .use(remarkParse)
-        // .use(remarkShiki, { highlighter })
-        .use(remarkGfm)
-        .use(remarkMath)
-        .use(remarkVideo)
-        .use(remarkWikiBlocks)
-        .use(remarkRehype)
-        .use(rehypeHighlight)
-        .use(rehypeSlug)
-        .use(rehypeKatex)
-        .use(rehypeStringify);
+	return unified()
+		.use(remarkParse)
+		// .use(remarkShiki, { highlighter })
+		.use(remarkGfm)
+		.use(remarkMath)
+		.use(remarkVideo)
+		.use(remarkWikiBlocks)
+		.use(remarkRehype)
+		.use(rehypeHighlight)
+		.use(rehypeSlug)
+		.use(rehypeKatex)
+		.use(rehypeStringify);
 }
 
 const processor = createProcessor();
@@ -31,5 +32,6 @@ const processor = createProcessor();
  * Renders markdown into HTML.
  */
 export function renderMarkdown(md: string) {
-    return processor.processSync(md).toString();
+	const html = processor.processSync(md).toString();
+	return purify.sanitize(html);
 }
