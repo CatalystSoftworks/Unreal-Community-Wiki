@@ -38,6 +38,7 @@ export const VERSIONS = [
     { number: 5.01, releaseDate: new Date("11/15/2022") },
     { number: 5.02, releaseDate: new Date("05/11/2023") },
     { number: 5.03, releaseDate: new Date("09/06/2023") },
+    { number: 5.04, releaseDate: new Date("04/23/2024") },
 ].reverse();
 
 /**
