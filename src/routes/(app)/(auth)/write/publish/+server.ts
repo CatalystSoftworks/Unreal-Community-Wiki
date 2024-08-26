@@ -11,7 +11,7 @@ import { env } from "$env/dynamic/private";
 // import purify from "isomorphic-dompurify";
 
 const SCHEMA = z.object({
-	revId: z.string().optional(),
+	revId: z.string().optional().nullable(),
 	title: z.string().max(255),
 	description: z.string().max(255),
 	tags: z.array(z.string()).max(10),
