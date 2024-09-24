@@ -32,10 +32,10 @@ export const remarkVideo = () => (tree: Root) => {
 
         // <iframe width="560" height="315" src="https://www.youtube.com/embed/31PtYw7WeLU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        const m = linkNode.url.match(IS_YOUTUBE_LINK);
-        if (m) {
+        const yt = linkNode.url.match(IS_YOUTUBE_LINK);
+        if (yt) {
             return createIframeNode(node, {
-                src: `https://www.youtube.com/embed/${m[1]}`,
+                src: `https://www.youtube.com/embed/${yt[1]}`,
                 allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
                 allowfullscreen: true,
                 title: "YouTube Video Player",
@@ -52,7 +52,7 @@ export const remarkVideo = () => (tree: Root) => {
  */
 function createIframeNode<T extends object>(fromNode: Node, props: T) {
     return {
-        type: "html",
+        type: "element",
         data: {
             hName: "div",
             hProperties: {
