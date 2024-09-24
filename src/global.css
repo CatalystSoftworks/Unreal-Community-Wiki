@@ -50,7 +50,7 @@
     --nav-highlight: rgba(255, 255, 255, 0.05);
     --text: #000;
     --outline-color: hsla(195, 85%, 41%, 0.5);
-    --text-muted: #717381;
+    --text-muted: #565868;
     --shadow-color: rgba(16, 24, 40, 0.05);
     --highlight: rgba(0, 0, 0, 0.05);
     --dim: rgba(0, 0, 0, 0.125);
@@ -75,6 +75,7 @@
     --fg: #1f1f1f;
     --nav-bg: #1c1d21;
     --text: #fff;
+    --text-muted: #717381;
     --border: #333;
     --highlight: rgba(255, 255, 255, 0.05);
     --scrollbar-foreground: var(--highlight);
@@ -101,6 +102,7 @@
         --fg: #1f1f1f;
         --nav-bg: #1c1d21;
         --text: #fff;
+        --text-muted: #717381;
         --border: #333;
         --highlight: rgba(255, 255, 255, 0.05);
         --scrollbar-foreground: var(--highlight);
