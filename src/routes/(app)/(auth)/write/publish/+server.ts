@@ -30,7 +30,7 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 
 		const validated = SCHEMA.safeParse(data);
 		if (!validated.success) {
-			console.error(validated.error.issues)
+			console.error(validated.error.issues);
 			return json({ error: "One or more fields are invalid" });
 		}
 

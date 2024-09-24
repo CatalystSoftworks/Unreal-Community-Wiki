@@ -1,5 +1,8 @@
 import type { ObjectId } from "mongodb";
 import { db } from "./db";
+import { LOCALES } from "$lib/locales";
+
+type LocaleCode = typeof LOCALES[number];
 
 /** Defines a record that can be deleted but will be retained in some form in the database. */
 interface SoftDelete {
@@ -59,7 +62,7 @@ declare global {
             /** The user's social network links that appear in their biography. */
             socials: { [key: string]: null | string };
             /** The user's localization preference. */
-            localeCode: string;
+            localeCode: LocaleCode;
             /** The desired reading mode for the user. */
             theme: "light" | "dark" | "auto";
             /** The desired version that the user wishes to see content filtered for. */
