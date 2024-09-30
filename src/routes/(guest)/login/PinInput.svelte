@@ -87,7 +87,7 @@
         <input
             type="text"
             maxlength="1"
-            bind:value={value[i]}
+            value={value.length > i ? value[i] : ""}
             on:keydown={(e) => onkeydown(e, i)}
             on:paste={onpaste}
         />
