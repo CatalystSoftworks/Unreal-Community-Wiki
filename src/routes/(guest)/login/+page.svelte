@@ -14,7 +14,9 @@
     let submitting = false;
 
     $: disabled = submitting || !email;
-    $: action = onPinStep ? `?/verify&email=${email}` : "?/request";
+    $: action = onPinStep
+        ? `?/verify&email=${email}`
+        : `?/request&email=${email}`;
 
     function onsubmit(e: Event) {
         submitting = true;
@@ -51,9 +53,7 @@
         </p>
 
         <div class="row">
-            <a href="/login" role="button" target="_self">
-                Request New Pin 
-            </a>
+            <a href="/login" role="button" target="_self"> Request New Pin </a>
             <button
                 class="primary"
                 type="submit"
@@ -87,9 +87,7 @@
         </p>
 
         <div class="row">
-            <a href="/register" role="button">
-                Create Account
-            </a>
+            <a href="/register" role="button"> Create Account </a>
             <button
                 class="primary"
                 type="submit"
