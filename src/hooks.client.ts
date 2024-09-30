@@ -1,6 +1,6 @@
-import { 
-  PUBLIC_SENTRY_DSN, 
-  PUBLIC_SENTRY_ERROR_SAMPLE_RATE, 
+import {
+  PUBLIC_SENTRY_DSN,
+  PUBLIC_SENTRY_ERROR_SAMPLE_RATE,
   PUBLIC_SENTRY_TRACE_SAMPLE_RATE,
   PUBLIC_SENTRY_REPLAYS_SAMPLE_RATE,
 } from "$env/static/public";
@@ -28,3 +28,18 @@ Sentry.init({
 
 // If you have a custom error handler, pass it to `handleErrorWithSentry`
 export const handleError = handleErrorWithSentry();
+
+// Resolves error related to dynamic imports and forces a refresh to try
+// correct potential issues (like cache busting)
+// See: https://github.com/vitejs/vite/issues/11804
+window.addEventListener("vite:preloadError", (ev) => {
+  Sentry.captureMessage("vite:preloadError encountered an error", {
+    level: "info",
+    extra: {
+      error: (ev as unknown as { payload: Error }).payload,
+    },
+  });
+
+  ev.preventDefault();
+  window.location.reload();
+});
