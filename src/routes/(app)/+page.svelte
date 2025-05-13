@@ -9,6 +9,7 @@
     import IconArrowLeft from "$lib/icons/arrow-left.svg?component";
     import IconArrowRight from "$lib/icons/arrow-right.svg?component";
     import Head from "$lib/components/Head.svelte";
+    import AdCard from "$lib/components/AdCard.svelte";
 
     export let data: PageData;
 
@@ -17,7 +18,7 @@
             acc[tag] = tag;
             return acc;
         },
-        {} as Record<string, string>,
+        {} as Record<string, string>
     );
 </script>
 
@@ -93,7 +94,7 @@
 </section>
 
 {#if data.articles.length > 0}
-    <footer class="pagination">
+    <section class="pagination">
         {#if data.previousPageUrl}
             <a href={data.previousPageUrl} class="icon page-prev" role="button">
                 <IconArrowLeft />
@@ -109,8 +110,10 @@
                 <IconArrowRight />
             </a>
         {/if}
-    </footer>
+    </section>
 {/if}
+
+<AdCard />
 
 <style>
     header {
@@ -185,16 +188,13 @@
         background: transparent;
     }
 
-    footer {
-        margin-top: 3rem;
-    }
-
     .empty {
         padding: 3rem 0;
         text-align: center;
     }
 
     .pagination {
+        margin-top: 3rem;
         display: grid;
         grid-template-columns: auto 1fr auto;
         gap: 1rem;

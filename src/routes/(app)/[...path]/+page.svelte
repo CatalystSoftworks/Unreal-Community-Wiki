@@ -14,6 +14,7 @@
     import { showUserProfile } from "../../UserProfilePopup.svelte";
     import { browser } from "$app/environment";
     import { onMount } from "svelte";
+    import AdCard from "$lib/components/AdCard.svelte";
 
     export let data: PageData;
 
@@ -49,7 +50,7 @@
         return () => {
             document.removeEventListener(
                 "versionchange",
-                customVersionEventWrapper,
+                customVersionEventWrapper
             );
         };
     });
@@ -122,6 +123,8 @@
     <section class="content">
         <MarkdownRenderer markdown={data.markdown} />
     </section>
+
+    <AdCard />
 </article>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -149,7 +152,7 @@
                             showUserProfile(
                                 rev.author.id,
                                 e.clientX,
-                                e.clientY,
+                                e.clientY
                             )}
                     >
                         {rev.author.displayName}

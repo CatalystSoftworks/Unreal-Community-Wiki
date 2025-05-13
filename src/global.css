@@ -67,6 +67,8 @@
     --scrollbar-foreground: var(--dim);
     --pre-scrollbar-foreground: rgba(255, 255, 255, 0.1);
     --pre-scrollbar-background: transparent;
+
+    --ad-bg: #ccc;
 }
 
 
@@ -94,6 +96,8 @@
     --success: #4caf50;
     --success-bg: #1f1f1f;
     --on-success: #000;
+
+    --ad-bg: #000;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -121,6 +125,8 @@
         --success: #4caf50;
         --success-bg: #1f1f1f;
         --on-success: #000;
+
+        --ad-bg: #000;
     }
 }
 
