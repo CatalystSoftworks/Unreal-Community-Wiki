@@ -110,12 +110,14 @@
                 </a>
             {/if}
         </div>
-        <div class="tags row-left">
-            <IconTag />
-            {#each data.tags as tag}
-                <a href={"/?tags=" + tag} class="tag">{tag}</a>
-            {/each}
-        </div>
+        {#if data.tags.length > 0}
+            <div class="tags row-left">
+                <IconTag />
+                {#each data.tags as tag}
+                    <a href={"/?tags=" + tag} class="tag">{tag}</a>
+                {/each}
+            </div>
+        {/if}
     </header>
     <section class="content">
         <MarkdownRenderer markdown={data.markdown} />
