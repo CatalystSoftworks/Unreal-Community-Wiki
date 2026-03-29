@@ -43,14 +43,14 @@
                     rel="noreferrer">Join the Unreal Slackers Discord</a
                 >
             </p>
-            <p>
+            <!-- <p>
                 Need help with the Unreal Wiki?<br />
                 <a
                     href="https://discord.gg/GsEw5z4"
                     target="_blank"
                     rel="noreferrer">Join the Wiki Discord</a
                 >
-            </p>
+            </p> -->
         </div>
     </div>
 </footer>
